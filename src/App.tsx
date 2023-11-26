@@ -15,7 +15,7 @@ function App() {
   };
 
   return (
-    <div className="mx-auto w-fit p-2 bg-stone-950 rounded-xl">
+    <div className="mx-auto w-fit p-2">
       <Screen operationString={operationString} result={result} />
 
       <div className="w-fit mx-auto">
@@ -46,8 +46,6 @@ function App() {
         <Button symbol={"="} str={operationString} setString={setString} />
         <Button symbol={"+"} str={operationString} setString={setString} />
       </div>
-
-      <br />
     </div>
   );
 }
