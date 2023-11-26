@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NumberButton } from "./components/NumberButton";
 import { OperationButton } from "./components/OperationButton";
 import { Screen } from "./components/Screen";
+import { FaDeleteLeft } from "react-icons/fa6";
 
 function App() {
   const [screenString, setOperationString] = useState("");
@@ -19,39 +20,6 @@ function App() {
     <div className="mx-auto bg-slate-900 w-fit">
       <Screen operationString={screenString} result={result} />
 
-      <NumberButton number={0} />
-      <NumberButton number={1} />
-      <NumberButton number={2} />
-      <NumberButton number={3} />
-
-      <NumberButton number={4} />
-      <NumberButton number={5} />
-      <NumberButton number={6} />
-      <NumberButton number={7} />
-
-      <NumberButton number={8} />
-      <NumberButton number={9} />
-      <OperationButton
-        operationSymbol={"-"}
-        setString={setString}
-        screenString={screenString}
-      />
-      <OperationButton
-        operationSymbol={"+"}
-        setString={setString}
-        screenString={screenString}
-      />
-      <br />
-      <OperationButton
-        operationSymbol={"÷"}
-        setString={setString}
-        screenString={screenString}
-      />
-      <OperationButton
-        operationSymbol={"×"}
-        setString={setString}
-        screenString={screenString}
-      />
       <OperationButton
         operationSymbol={"^2"}
         setString={setString}
@@ -62,8 +30,51 @@ function App() {
         setString={setString}
         screenString={screenString}
       />
+      <button className="btn">
+        <FaDeleteLeft />
+      </button>
+      <button className="btn">C</button>
+      <br />
 
+      <NumberButton number={1} />
+      <NumberButton number={2} />
+      <NumberButton number={3} />
+      <OperationButton
+        operationSymbol={"÷"}
+        setString={setString}
+        screenString={screenString}
+      />
+      <br />
+
+      <NumberButton number={4} />
+      <NumberButton number={5} />
+      <NumberButton number={6} />
+      <OperationButton
+        operationSymbol={"×"}
+        setString={setString}
+        screenString={screenString}
+      />
+      <br />
+
+      <NumberButton number={7} />
+      <NumberButton number={8} />
+      <NumberButton number={9} />
+      <OperationButton
+        operationSymbol={"-"}
+        setString={setString}
+        screenString={screenString}
+      />
+      <br />
+
+      <button className="btn">.</button>
+      <NumberButton number={0} />
       <button className="btn">=</button>
+      <OperationButton
+        operationSymbol={"+"}
+        setString={setString}
+        screenString={screenString}
+      />
+      <br />
     </div>
   );
 }
