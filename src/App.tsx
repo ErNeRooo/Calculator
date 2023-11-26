@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import { NumberButton } from "./components/NumberButton";
 
 function App() {
   const [screenString, setOperationString] = useState("");
