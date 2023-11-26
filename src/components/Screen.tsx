@@ -1,9 +1,9 @@
 export const Screen = ({ operationString, result }: IProps) => {
   return (
-    <>
-      <div className="operation">{operationString}</div>
-      <div className="result">{result}</div>
-    </>
+    <div className="w-max h-8 bg-white">
+      <div>{operationString}</div>
+      <div>{result}</div>
+    </div>
   );
 };
 
