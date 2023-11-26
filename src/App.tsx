@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import { NumberButton } from "./components/NumberButton";
 import { OperationButton } from "./components/OperationButton";
+import { Screen } from "./components/Screen";
 
 function App() {
   const [screenString, setOperationString] = useState("");
@@ -66,6 +67,7 @@ function App() {
         screenString={screenString}
       />
     </>
+  );
 }
 
 export default App;
