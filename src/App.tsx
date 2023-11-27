@@ -28,7 +28,11 @@ function App() {
     const symbol: string = operation[0];
 
     const first: number = parseFloat(operationString.split(symbol)[0]);
-    const second: number = parseFloat(operationString.split(symbol)[1]);
+    const second: number =
+      operationString.split(symbol)[1] === ""
+        ? first
+        : parseFloat(operationString.split(symbol)[1]);
+
     let operationResult: string = "";
 
     switch (symbol) {
