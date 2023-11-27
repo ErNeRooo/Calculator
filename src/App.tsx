@@ -27,7 +27,10 @@ function App() {
 
     const symbol: string = operation[0];
 
-    const first: number = parseFloat(operationString.split(symbol)[0]);
+    const first: number =
+      operationString.split(symbol)[0] === ""
+        ? 0
+        : parseFloat(operationString.split(symbol)[0]);
     const second: number =
       operationString.split(symbol)[1] === ""
         ? first
