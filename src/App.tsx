@@ -3,12 +3,13 @@ import { Button } from "./components/Button";
 import { Screen } from "./components/Screen";
 
 function App() {
-  const [operationString, setOperationString] = useState("");
+  const [operationString, setOperationString] = useState("+ √ ÷ × - ^");
   const [result, setResult] = useState("");
 
   const add = (symbol: string) => {
     setOperationString((prev) => prev + symbol);
   };
+
   const del = () => {
     setOperationString((prev) => {
       const str: string = prev.slice(0, -1);
@@ -16,12 +17,24 @@ function App() {
     });
     setResult("");
   };
+
   const clear = () => {
     setOperationString("");
     setResult("");
   };
+
   const calculate = (isSecondOperation: boolean = false) => {
-    const operation = operationString.match(/[+:√:÷:×:-:^]/g);
+    if (result.length > 20) {
+      setResult("Przepełnienie");
+      return;
+    }
+
+    const operation: string[] = operationString.split("").filter((element) => {
+      return ["^", "√", "÷", "×", "-", "+"].includes(element);
+    });
+    console.log(operation);
+    console.log(operationString);
+
     let isUpdateFirst = isSecondOperation;
 
     if (operation == null) return;
@@ -41,6 +54,7 @@ function App() {
 
     let operationResult: string = "";
 
+    console.log(symbol);
     switch (symbol) {
       case "^":
         operationResult = Math.pow(first, 2).toString();
@@ -79,8 +93,6 @@ function App() {
       first = parseFloat(result);
       setOperationString(operationResult);
     }
-    console.log(first);
-    console.log(isSecondOperation);
   };
 
   return (

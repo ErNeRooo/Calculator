@@ -5,6 +5,8 @@ export const Button = ({ symbol, str, setter, calculate }: IProps) => {
   const handleNumberClick = () => {
     if (str.length > 29) return;
 
+    if (["^", "√"].includes(str[str.length - 1])) return;
+
     setter(symbol);
   };
 
