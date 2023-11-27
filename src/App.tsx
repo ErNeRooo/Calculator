@@ -3,7 +3,7 @@ import { Button } from "./components/Button";
 import { Screen } from "./components/Screen";
 
 function App() {
-  const [operationString, setOperationString] = useState("+ √ ÷ × - ^");
+  const [operationString, setOperationString] = useState("");
   const [result, setResult] = useState("");
 
   const add = (symbol: string) => {
@@ -24,16 +24,9 @@ function App() {
   };
 
   const calculate = (isSecondOperation: boolean = false) => {
-    if (result.length > 20) {
-      setResult("Przepełnienie");
-      return;
-    }
-
     const operation: string[] = operationString.split("").filter((element) => {
       return ["^", "√", "÷", "×", "-", "+"].includes(element);
     });
-    console.log(operation);
-    console.log(operationString);
 
     let isUpdateFirst = isSecondOperation;
 
@@ -88,6 +81,11 @@ function App() {
     }
 
     setResult(operationResult.toString());
+
+    if (result.length > 20) {
+      setResult("Przepełnienie");
+      return;
+    }
 
     if (isUpdateFirst) {
       first = parseFloat(result);

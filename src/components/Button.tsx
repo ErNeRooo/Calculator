@@ -12,9 +12,8 @@ export const Button = ({ symbol, str, setter, calculate }: IProps) => {
 
   const handleOperationClick = () => {
     if (str.length > 29) return;
-
+    if (str === "") return;
     if (operationSymbols.includes(str[str.length - 1])) return;
-
     if (
       !operationSymbols.includes(str[str.length - 1]) &&
       str.search(/[+:√:÷:×:-:^]/g) !== -1
