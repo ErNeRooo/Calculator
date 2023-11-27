@@ -1,7 +1,7 @@
 const numbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const operationSymbols: string[] = ["^", "√", "÷", "×", "-", "+"];
 
-export const Button = ({ symbol, str, setter }: IProps) => {
+export const Button = ({ symbol, str, setter, calculate }: IProps) => {
   const handleNumberClick = () => {
     if (str.length > 20) return;
 
@@ -34,7 +34,7 @@ export const Button = ({ symbol, str, setter }: IProps) => {
     );
   else if (symbol === "=")
     return (
-      <button onClick={handleSpecialClick} className="btn bg-blue-500">
+      <button onClick={calculate} className="btn bg-blue-500">
         {symbol}
       </button>
     );
@@ -44,14 +44,11 @@ export const Button = ({ symbol, str, setter }: IProps) => {
         {symbol}
       </button>
     );
-
-  symbol;
-  setter;
-  str;
 };
 
 interface IProps {
   symbol: string;
   str: string;
   setter: (symbol: string) => void;
+  calculate: () => void;
 }

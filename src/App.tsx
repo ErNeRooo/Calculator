@@ -14,9 +14,67 @@ function App() {
       const str: string = prev.slice(0, -1);
       return str;
     });
+    setResult("");
   };
   const clear = () => {
     setOperationString("");
+    setResult("");
+  };
+  const calculate = () => {
+    const operation = operationString.match(/[+:√:÷:×:-:^]/g);
+    console.log("operation: " + operation);
+
+    if (operation == null) return;
+
+    const symbol: string = operation[0];
+    console.log("symbol: " + symbol);
+
+    const first: number = parseFloat(operationString.split(symbol)[0]);
+    const second: number = parseFloat(operationString.split(symbol)[1]);
+    let operationResult: number = 0;
+    console.log("operationString: " + operationString);
+    console.log(
+      "operationString.split(symbol)[0]: " + operationString.split(symbol)[0]
+    );
+    console.log(
+      "operationString.split(symbol)[1]: " + operationString.split(symbol)[1]
+    );
+    console.log("first: " + first);
+    console.log("second: " + second);
+
+    switch (symbol) {
+      case "^":
+        operationResult = Math.pow(first, 2);
+        console.log(`${first} ^ 2 = ${operationResult}`);
+        break;
+      case "√":
+        operationResult = Math.sqrt(first);
+        console.log(`${first} √ 2 = ${operationResult}`);
+        break;
+      case "÷":
+        // dzielenie przez zero
+        operationResult = first / second;
+        console.log(`${first} / ${second} = ${operationResult}`);
+        break;
+      case "×":
+        operationResult = first * second;
+        console.log(`${first} * ${second} = ${operationResult}`);
+        break;
+      case "-":
+        operationResult = first - second;
+        console.log(`${first} - ${second} = ${operationResult}`);
+        break;
+      case "+":
+        operationResult = first + second;
+        console.log(`${first} + ${second} = ${operationResult}`);
+        break;
+      default:
+        console.log("default");
+        operationResult = 86;
+        break;
+    }
+
+    setResult(operationResult.toString());
   };
 
   return (
@@ -24,32 +82,132 @@ function App() {
       <Screen operationString={operationString} result={result} />
 
       <div className="w-fit mx-auto">
-        <Button symbol={"^"} str={operationString} setter={add} />
-        <Button symbol={"√"} str={operationString} setter={add} />
-        <Button symbol={"Del"} str={operationString} setter={del} />
-        <Button symbol={"C"} str={operationString} setter={clear} />
+        <Button
+          symbol={"^"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"√"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"Del"}
+          str={operationString}
+          setter={del}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"C"}
+          str={operationString}
+          setter={clear}
+          calculate={calculate}
+        />
         <br />
 
-        <Button symbol={"1"} str={operationString} setter={add} />
-        <Button symbol={"2"} str={operationString} setter={add} />
-        <Button symbol={"3"} str={operationString} setter={add} />
-        <Button symbol={"÷"} str={operationString} setter={add} />
+        <Button
+          symbol={"1"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"2"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"3"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"÷"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
         <br />
 
-        <Button symbol={"4"} str={operationString} setter={add} />
-        <Button symbol={"5"} str={operationString} setter={add} />
-        <Button symbol={"6"} str={operationString} setter={add} />
-        <Button symbol={"×"} str={operationString} setter={add} />
+        <Button
+          symbol={"4"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"5"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"6"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"×"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
         <br />
-        <Button symbol={"7"} str={operationString} setter={add} />
-        <Button symbol={"8"} str={operationString} setter={add} />
-        <Button symbol={"9"} str={operationString} setter={add} />
-        <Button symbol={"-"} str={operationString} setter={add} />
+        <Button
+          symbol={"7"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"8"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"9"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"-"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
         <br />
-        <Button symbol={"."} str={operationString} setter={add} />
-        <Button symbol={"0"} str={operationString} setter={add} />
-        <Button symbol={"="} str={operationString} setter={add} />
-        <Button symbol={"+"} str={operationString} setter={add} />
+        <Button
+          symbol={"."}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"0"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"="}
+          str={operationString}
+          setter={calculate}
+          calculate={calculate}
+        />
+        <Button
+          symbol={"+"}
+          str={operationString}
+          setter={add}
+          calculate={calculate}
+        />
       </div>
     </div>
   );
