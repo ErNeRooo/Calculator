@@ -1,7 +1,13 @@
 const numbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const operationSymbols: string[] = ["^", "√", "÷", "×", "-", "+"];
 
-export const Button = ({ symbol, str, setter, calculate }: IProps) => {
+export const Button = ({
+  symbol,
+  str,
+  setter,
+  calculate,
+  isBlocked,
+}: IProps) => {
   const handleNumberClick = () => {
     if (str.length > 29) return;
 
@@ -32,7 +38,11 @@ export const Button = ({ symbol, str, setter, calculate }: IProps) => {
 
   if (numbers.toString().includes(symbol))
     return (
-      <button onClick={handleNumberClick} className="btn bg-stone-500">
+      <button
+        disabled={isBlocked}
+        onClick={handleNumberClick}
+        className="btn bg-stone-500"
+      >
         {symbol}
       </button>
     );
@@ -44,13 +54,21 @@ export const Button = ({ symbol, str, setter, calculate }: IProps) => {
     );
   else if (symbol === "=")
     return (
-      <button onClick={handleCalculateClick} className="btn bg-blue-500">
+      <button
+        disabled={isBlocked}
+        onClick={handleCalculateClick}
+        className="btn bg-blue-500"
+      >
         {symbol}
       </button>
     );
   else
     return (
-      <button onClick={handleOperationClick} className="btn ">
+      <button
+        disabled={isBlocked}
+        onClick={handleOperationClick}
+        className="btn "
+      >
         {symbol}
       </button>
     );
@@ -61,4 +79,5 @@ interface IProps {
   str: string;
   setter: (symbol: string) => void;
   calculate: (isSecondOperation: boolean) => void;
+  isBlocked: boolean;
 }
