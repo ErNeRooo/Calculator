@@ -22,6 +22,7 @@ function App() {
   };
   const calculate = (isSecondOperation: boolean = false) => {
     const operation = operationString.match(/[+:√:÷:×:-:^]/g);
+    let isUpdateFirst = isSecondOperation;
 
     if (operation == null) return;
 
@@ -35,6 +36,8 @@ function App() {
       operationString.split(symbol)[1] === ""
         ? first
         : parseFloat(operationString.split(symbol)[1]);
+
+    if (operationString.split(symbol)[1] === "") isUpdateFirst = true;
 
     let operationResult: string = "";
 
@@ -72,7 +75,7 @@ function App() {
 
     setResult(operationResult.toString());
 
-    if (isSecondOperation) {
+    if (isUpdateFirst) {
       first = parseFloat(result);
       setOperationString(operationResult);
     }
@@ -214,7 +217,6 @@ function App() {
       </div>
     </div>
   );
-  setResult("");
 }
 
 export default App;
