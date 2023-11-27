@@ -22,55 +22,44 @@ function App() {
   };
   const calculate = () => {
     const operation = operationString.match(/[+:√:÷:×:-:^]/g);
-    console.log("operation: " + operation);
 
     if (operation == null) return;
 
     const symbol: string = operation[0];
-    console.log("symbol: " + symbol);
 
     const first: number = parseFloat(operationString.split(symbol)[0]);
     const second: number = parseFloat(operationString.split(symbol)[1]);
-    let operationResult: number = 0;
-    console.log("operationString: " + operationString);
-    console.log(
-      "operationString.split(symbol)[0]: " + operationString.split(symbol)[0]
-    );
-    console.log(
-      "operationString.split(symbol)[1]: " + operationString.split(symbol)[1]
-    );
-    console.log("first: " + first);
-    console.log("second: " + second);
+    let operationResult: string = "";
 
     switch (symbol) {
       case "^":
-        operationResult = Math.pow(first, 2);
-        console.log(`${first} ^ 2 = ${operationResult}`);
+        operationResult = Math.pow(first, 2).toString();
         break;
+
       case "√":
-        operationResult = Math.sqrt(first);
-        console.log(`${first} √ 2 = ${operationResult}`);
+        operationResult = Math.sqrt(first).toString();
         break;
+
       case "÷":
-        // dzielenie przez zero
-        operationResult = first / second;
-        console.log(`${first} / ${second} = ${operationResult}`);
+        operationResult = (first / second).toString();
+        if (symbol === "÷" && second === 0)
+          operationResult = "Nie można dzielić przez 0";
         break;
+
       case "×":
-        operationResult = first * second;
-        console.log(`${first} * ${second} = ${operationResult}`);
+        operationResult = (first * second).toString();
         break;
+
       case "-":
-        operationResult = first - second;
-        console.log(`${first} - ${second} = ${operationResult}`);
+        operationResult = (first - second).toString();
         break;
+
       case "+":
-        operationResult = first + second;
-        console.log(`${first} + ${second} = ${operationResult}`);
+        operationResult = (first + second).toString();
         break;
+
       default:
-        console.log("default");
-        operationResult = 86;
+        operationResult = "86";
         break;
     }
 
