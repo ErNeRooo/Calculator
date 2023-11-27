@@ -3,16 +3,21 @@ const operationSymbols: string[] = ["^", "√", "÷", "×", "-", "+"];
 
 export const Button = ({ symbol, str, setter, calculate }: IProps) => {
   const handleNumberClick = () => {
-    if (str.length > 20) return;
+    if (str.length > 29) return;
 
     setter(symbol);
   };
 
   const handleOperationClick = () => {
-    if (str.length > 20) return;
+    if (str.length > 29) return;
 
     if (operationSymbols.includes(str[str.length - 1])) return;
 
+    if (
+      !operationSymbols.includes(str[str.length - 1]) &&
+      str.search(/[+:√:÷:×:-:^]/g) !== -1
+    )
+      calculate();
     setter(symbol);
   };
 
