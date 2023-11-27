@@ -20,14 +20,14 @@ function App() {
     setOperationString("");
     setResult("");
   };
-  const calculate = () => {
+  const calculate = (isSecondOperation: boolean = false) => {
     const operation = operationString.match(/[+:√:÷:×:-:^]/g);
 
     if (operation == null) return;
 
     const symbol: string = operation[0];
 
-    const first: number =
+    let first: number =
       operationString.split(symbol)[0] === ""
         ? 0
         : parseFloat(operationString.split(symbol)[0]);
@@ -71,6 +71,13 @@ function App() {
     }
 
     setResult(operationResult.toString());
+
+    if (isSecondOperation) {
+      first = parseFloat(result);
+      setOperationString(operationResult);
+    }
+    console.log(first);
+    console.log(isSecondOperation);
   };
 
   return (
@@ -195,7 +202,7 @@ function App() {
         <Button
           symbol={"="}
           str={operationString}
-          setter={calculate}
+          setter={add}
           calculate={calculate}
         />
         <Button

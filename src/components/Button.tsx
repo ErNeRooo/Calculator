@@ -17,12 +17,16 @@ export const Button = ({ symbol, str, setter, calculate }: IProps) => {
       !operationSymbols.includes(str[str.length - 1]) &&
       str.search(/[+:√:÷:×:-:^]/g) !== -1
     )
-      calculate();
+      calculate(true);
     setter(symbol);
   };
 
   const handleSpecialClick = () => {
     setter("");
+  };
+
+  const handleCalculateClick = () => {
+    calculate(false);
   };
 
   if (numbers.toString().includes(symbol))
@@ -39,7 +43,7 @@ export const Button = ({ symbol, str, setter, calculate }: IProps) => {
     );
   else if (symbol === "=")
     return (
-      <button onClick={calculate} className="btn bg-blue-500">
+      <button onClick={handleCalculateClick} className="btn bg-blue-500">
         {symbol}
       </button>
     );
@@ -55,5 +59,5 @@ interface IProps {
   symbol: string;
   str: string;
   setter: (symbol: string) => void;
-  calculate: () => void;
+  calculate: (isSecondOperation: boolean) => void;
 }
