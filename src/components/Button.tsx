@@ -46,7 +46,7 @@ export const Button = ({
         {symbol}
       </button>
     );
-  else if (["C", "Del"].includes(symbol))
+  else if (["C"].includes(symbol))
     return (
       <button onClick={handleSpecialClick} className="btn">
         {symbol}
