@@ -28,10 +28,6 @@ export const Button = ({
     setter(symbol);
   };
 
-  const handleSpecialClick = () => {
-    setter("");
-  };
-
   const handleCalculateClick = () => {
     calculate(false);
   };
@@ -43,12 +39,6 @@ export const Button = ({
         onClick={handleNumberClick}
         className="btn bg-stone-500"
       >
-        {symbol}
-      </button>
-    );
-  else if (["C"].includes(symbol))
-    return (
-      <button onClick={handleSpecialClick} className="btn">
         {symbol}
       </button>
     );

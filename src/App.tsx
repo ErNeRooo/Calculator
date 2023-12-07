@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "./components/Button";
 import { Screen } from "./components/Screen";
 import { Delete } from "./components/Delete";
+import { Clear } from "./components/Clear";
 
 function App() {
   const [operationString, setOperationString] = useState("");
@@ -120,13 +121,7 @@ function App() {
           isBlocked={isDisabled}
         />
         <Delete setter={del} />
-        <Button
-          symbol={"C"}
-          str={operationString}
-          setter={clear}
-          calculate={calculate}
-          isBlocked={isDisabled}
-        />
+        <Clear setter={clear} />
         <br />
 
         <Button
