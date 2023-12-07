@@ -3,6 +3,7 @@ import { Button } from "./components/Button";
 import { Screen } from "./components/Screen";
 import { Delete } from "./components/Delete";
 import { Clear } from "./components/Clear";
+import { Number } from "./components/Number";
 
 function App() {
   const [operationString, setOperationString] = useState("");
@@ -124,25 +125,22 @@ function App() {
         <Clear setter={clear} />
         <br />
 
-        <Button
+        <Number
           symbol={"1"}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
-        <Button
+        <Number
           symbol={"2"}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
-        <Button
+        <Number
           symbol={"3"}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
         <Button
@@ -154,25 +152,22 @@ function App() {
         />
         <br />
 
-        <Button
+        <Number
           symbol={"4"}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
-        <Button
+        <Number
           symbol={"5"}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
-        <Button
+        <Number
           symbol={"6"}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
         <Button
@@ -183,25 +178,23 @@ function App() {
           isBlocked={isDisabled}
         />
         <br />
-        <Button
+
+        <Number
           symbol={"7"}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
-        <Button
+        <Number
           symbol={"8"}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
-        <Button
+        <Number
           symbol={"9"}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
         <Button
@@ -219,11 +212,10 @@ function App() {
           calculate={calculate}
           isBlocked={isDisabled}
         />
-        <Button
+        <Number
           symbol={"0"}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
         <Button

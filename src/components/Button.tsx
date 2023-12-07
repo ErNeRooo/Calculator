@@ -1,4 +1,3 @@
-const numbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const operationSymbols: string[] = ["^", "√", "÷", "×", "-", "+"];
 
 export const Button = ({
@@ -8,14 +7,6 @@ export const Button = ({
   calculate,
   isBlocked,
 }: IProps) => {
-  const handleNumberClick = () => {
-    if (str.length > 29) return;
-
-    if (["^", "√"].includes(str[str.length - 1])) return;
-
-    setter(symbol);
-  };
-
   const handleOperationClick = () => {
     if (str.length > 29) return;
     if (str === "") return;
@@ -32,17 +23,7 @@ export const Button = ({
     calculate(false);
   };
 
-  if (numbers.toString().includes(symbol))
-    return (
-      <button
-        disabled={isBlocked}
-        onClick={handleNumberClick}
-        className="btn bg-stone-500"
-      >
-        {symbol}
-      </button>
-    );
-  else if (symbol === "=")
+  if (symbol === "=")
     return (
       <button
         disabled={isBlocked}
