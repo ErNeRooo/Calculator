@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "./components/Button";
+import { Equal } from "./components/Equal";
 import { Screen } from "./components/Screen";
 import { Delete } from "./components/Delete";
 import { Clear } from "./components/Clear";
@@ -219,7 +219,7 @@ function App() {
           setter={add}
           isBlocked={isDisabled}
         />
-        <Button symbol={"="} calculate={calculate} isBlocked={isDisabled} />
+        <Equal symbol={"="} calculate={calculate} isBlocked={isDisabled} />
         <Operation
           symbol={"+"}
           str={operationString}

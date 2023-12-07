@@ -1,4 +1,4 @@
-export const Button = ({ symbol, calculate, isBlocked }: IProps) => {
+export const Equal = ({ symbol, calculate, isBlocked }: IProps) => {
   const handleCalculateClick = () => {
     calculate(false);
   };
