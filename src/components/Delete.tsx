@@ -1,4 +1,4 @@
-export const DeleteButton = ({ setter }: Props) => {
+export const Delete = ({ setter }: Props) => {
   return (
     <button onClick={setter} className="btn">
       {"Del"}

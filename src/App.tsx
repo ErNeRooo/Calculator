@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "./components/Button";
 import { Screen } from "./components/Screen";
-import { DeleteButton } from "./components/DeleteButton";
+import { Delete } from "./components/Delete";
 
 function App() {
   const [operationString, setOperationString] = useState("");
@@ -119,7 +119,7 @@ function App() {
           calculate={calculate}
           isBlocked={isDisabled}
         />
-        <DeleteButton setter={del} />
+        <Delete setter={del} />
         <Button
           symbol={"C"}
           str={operationString}
