@@ -4,6 +4,7 @@ import { Screen } from "./components/Screen";
 import { Delete } from "./components/Delete";
 import { Clear } from "./components/Clear";
 import { Number } from "./components/Number";
+import { Operation } from "./components/Operation";
 
 function App() {
   const [operationString, setOperationString] = useState("");
@@ -107,14 +108,14 @@ function App() {
       <Screen operationString={operationString} result={result} />
 
       <div className="w-fit mx-auto">
-        <Button
+        <Operation
           symbol={"^"}
           str={operationString}
           setter={add}
           calculate={calculate}
           isBlocked={isDisabled}
         />
-        <Button
+        <Operation
           symbol={"√"}
           str={operationString}
           setter={add}
@@ -143,7 +144,7 @@ function App() {
           setter={add}
           isBlocked={isDisabled}
         />
-        <Button
+        <Operation
           symbol={"÷"}
           str={operationString}
           setter={add}
@@ -170,7 +171,7 @@ function App() {
           setter={add}
           isBlocked={isDisabled}
         />
-        <Button
+        <Operation
           symbol={"×"}
           str={operationString}
           setter={add}
@@ -197,7 +198,7 @@ function App() {
           setter={add}
           isBlocked={isDisabled}
         />
-        <Button
+        <Operation
           symbol={"-"}
           str={operationString}
           setter={add}
@@ -205,11 +206,11 @@ function App() {
           isBlocked={isDisabled}
         />
         <br />
-        <Button
+
+        <Number
           symbol={"."}
           str={operationString}
           setter={add}
-          calculate={calculate}
           isBlocked={isDisabled}
         />
         <Number
@@ -218,14 +219,8 @@ function App() {
           setter={add}
           isBlocked={isDisabled}
         />
-        <Button
-          symbol={"="}
-          str={operationString}
-          setter={add}
-          calculate={calculate}
-          isBlocked={isDisabled}
-        />
-        <Button
+        <Button symbol={"="} calculate={calculate} isBlocked={isDisabled} />
+        <Operation
           symbol={"+"}
           str={operationString}
           setter={add}
